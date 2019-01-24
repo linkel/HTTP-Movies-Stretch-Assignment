@@ -1,11 +1,11 @@
+const CORS = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
-const CORS = require('cors');
+
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(CORS());
+
 
 const movies = [{
     id: 0,
@@ -50,6 +50,9 @@ const movies = [{
     stars: ['Kurt Russell', 'Bill Paxton', 'Sam Elliot']
   }
 ];
+
+app.use(bodyParser.json());
+app.use(CORS());
 
 let movieId = movies.length;
 
