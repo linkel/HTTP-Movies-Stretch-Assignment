@@ -35,10 +35,12 @@ export default class Movie extends React.Component {
   };
 
   render() {
-    if (!this.state.movie) {
+    if (!this.state.movie && this.props.match.url !== "/movies/add") {
       return <div>Loading movie information...</div>;
     }
-
+    if (!this.state.movie && this.props.match.url === "/movies/add") {
+      return <div></div>;
+    }
     return (
       <div className="save-wrapper">
         <MovieCard movie={this.state.movie} />
